@@ -1,39 +1,8 @@
 #!/usr/bin/env python3
 
-"""
-experts = Chef, Hunter, Lumberjack, Blacksmith, Survivalist, Doctor, Driver
-
-Skills = cooking(food), hunting(animal), chopping(wood), repair(tool), locate(natural_resource), heal(person), drive(caravan)
-
-
-Start the script:
-    description of situation
-        (in the woods/desert/etc. 
-    State some need:
-        Hunger
-        sleep
-        water
-    Experts show their utility verbally
-
-    Arbiter selects experts for tasks
-
-    Experts report success of tasks
-
-    Show status change
-
-"""
-import random
 from Expert import Expert
 
-
-#task: Need Food
-#   Chef: expresses insistence('I can cook food') but needs('Ingredients', 'Fire')#   LumberJack: expresses insistence('I can get wood')
-#   Hunter: expresses insistence('I can hunt meat')
-#   Survivalist: expresses insistence('I can get fresh water/veggies')
-
 blackboard = {"inventory":[], "needs":[]}
-
-
 
 print("\nThe travelers have taken a wrong turn and have ended up lost in The Great Forest of Ashwood.  At first they're focused on just finding their way.")
 chef = Expert("Chef", blackboard, cooking=0.99)
@@ -59,7 +28,7 @@ while "food" in blackboard["needs"] and "food" not in blackboard["inventory"]:
         if expert == lastExpert:
             continue
         insistence = expert.getInsistence()
-        print("\t{}'s insistence: {:1.3f}".format(expert.name, insistence))
+        print("\t{}'s insistence: {:1.2f}".format(expert.name, insistence))
         if insistence > maxInsistence:
             maxInsistence = insistence
             bestExpert = expert
