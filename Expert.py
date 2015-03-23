@@ -33,6 +33,9 @@ class Expert:
                 print("I have successuflly cooked the food. Enjoy!")
                 self.blackboard["inventory"].append("food")
                 self.blackboard["needs"].remove("food")
+                self.blackboard["inventory"].remove("meat")
+                self.blackboard["inventory"].remove("water")
+                self.blackboard["inventory"].remove("fire")
             else:
                 print("I screwed this dish up.  We could eat it at the risk of...Dysentery")
                 self.blackboard["inventory"].remove("meat")
